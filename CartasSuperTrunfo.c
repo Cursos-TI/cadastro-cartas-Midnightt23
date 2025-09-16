@@ -14,6 +14,7 @@ int main (){
     int pontos_turisticos1, pontos_turisticos2;
     float densidade_populacional1, densidade_populacional2;
     float pib_per_capita1, pib_per_capita2;
+    float super_poder1, super_poder2;
 
 
     //entrada de dados da primeira carta
@@ -67,12 +68,19 @@ int main (){
     printf ("Digite o numero de pontos turisticos \n");
     scanf ("%d", &pontos_turisticos2);
 
+
     //calculo de densidade populacional e pib per capito das cartas 1 e cartas 2
 
     densidade_populacional1 = populacao1 / area_em_km1;
     pib_per_capita1 = (pib1 * 1000000000) / populacao1;
     densidade_populacional2 = populacao2 / area_em_km2;
     pib_per_capita2 = (pib2 * 1000000000) / populacao2;
+
+
+    //calculo do super poder cartas 1 e 2
+    super_poder1 = (populacao1 + area_em_km1 + pib1 + pontos_turisticos1 + pib_per_capita1) - densidade_populacional1;
+    super_poder2 = (populacao2 + area_em_km2 + pib2 + pontos_turisticos2 + pib_per_capita2) - densidade_populacional2;
+
 
     //Saida de dados digitados pelo usuario (carta1)
 
@@ -86,6 +94,8 @@ int main (){
     printf ("pontos_turisticos: %d \n", pontos_turisticos1);
     printf ("densidade_populacional: %.2f \n", densidade_populacional1);
     printf ("pib_per_capita: %.2f \n", pib_per_capita1);
+    printf("super_poder: %.2f \n", super_poder1);
+
 
     //Saida de dados digitados pelo usuario (carta2)
 
@@ -99,6 +109,18 @@ int main (){
     printf ("pontos_turisticos: %d \n", pontos_turisticos2);
     printf ("densidade_populacional: %.2f \n", densidade_populacional2);
     printf ("pib_per_capita: %.2f \n", pib_per_capita2);
+    printf ("super_poder: %.2f \n", super_poder2);
+
+
+    //comparação entre carta 1 e carta2
+
+    printf ("carta 1 é maior que a carta2 em população? %d\n", populacao1 > populacao2);
+    printf ("carta 1 é maior que a carta2 em area? %d\n", area_em_km1 > area_em_km2);
+    printf ("carta 1 é maior que a carta2 em pib? %d\n", pib1 > pib2);
+    printf ("carta 1 é maior que a carta2 em pontos_turisticos? %d\n", pontos_turisticos1 > pontos_turisticos2);
+    printf ("carta 1 é maior que a carta2 em densidade_populacional? %d\n", densidade_populacional1 > densidade_populacional2);
+    printf ("carta 1 é maior que a carta2 em pib per capita? %d\n", pib_per_capita1 > pib_per_capita2);
+    printf ("carta 1 é maior que a carta2 em super poder? %d\n", super_poder1 > super_poder2);
 
     return 0;
 
